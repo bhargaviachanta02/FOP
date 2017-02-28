@@ -1,33 +1,40 @@
 public class ECC_23_NumberPattern4
 {
+
 	public static void main(String[] arg) {
-		int rows = 6;
+		int rows = 20;
 		System.out.println(createNumberPattern(rows));
 	}
+
 	public static String createNumberPattern(int rows)
 	{
-		if (rows <0 ){
-			return"-1";
-			
+		// ADD YOUR CODE HERE
+		String str = "* ";
+		String args[] ;
+		args = str.split(" ", 2);
+		str = args[1];
+		if (rows < 0) {
+			return "-1";
 		}
-		if (rows ==0) {
+		if (rows == 0) {
 			return "-2";
 		}
-		int count = 1;
-		for (int i = 1; i <= rows; i++)
-        {
-			System.out.println("\r");
-            for (int j = 1; j <= i; j++)
-            {
-             String z =("\r"+count+"\t ");
-                count++;
-                System.out.print(z.trim());   
-           }
-             
-            System.out.println();
-        }
-         
-		return "";
+		else {
+			for (int i = 1 ; i <= rows ; i++) {
+				for (int j = 1 ; j <= i ; j++) {
+					if( j == i) {
+						str = str + Integer.toString(i*j);
+					}
+					else {
+						str = str + Integer.toString(i*j);
+						str = str + " ";
+					}
+				}
+				if (i != rows) {
+					str = str + "\n";
+				}
+			}
+			return str;
 		}
-	
- }
+	}
+}
